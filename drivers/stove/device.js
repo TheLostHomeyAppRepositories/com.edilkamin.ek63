@@ -26,6 +26,7 @@ module.exports = class EK63Device extends Homey.Device {
             'Authorization': `${this.homey.settings.get("idToken")}`
           }
         });
+        this.log("Device turned on");
       } else {
         await axios.put(`https://8wmnu4exgg.execute-api.eu-central-1.amazonaws.com/prod/heaters/${this.getData().id}/status`, {
           status: "off"
@@ -34,6 +35,7 @@ module.exports = class EK63Device extends Homey.Device {
             'Authorization': `${this.homey.settings.get("idToken")}`
           }
         });
+        this.log("Device turned off");
       }
     });
     // Target temperature (setpoint)
@@ -120,6 +122,7 @@ module.exports = class EK63Device extends Homey.Device {
       await this.setCapabilityValue('standby_mode', resData.standbyMode);
       await this.setCapabilityValue('onoff', resData.status === 1);
       await this.setCapabilityValue('fan_speed', resData.fan1power);
+      this.log("ResData: ", resData);
     } catch (error) {
       if (error.response?.status === 401) {
         const authres = await auth.refresh(this.homey.settings.get('email'), this.homey.settings.get('refreshToken'));
