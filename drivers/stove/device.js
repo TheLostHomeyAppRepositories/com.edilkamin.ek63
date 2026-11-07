@@ -120,7 +120,7 @@ module.exports = class EK63Device extends Homey.Device {
       await this.setCapabilityValue('target_temperature', resData.temperature);
       await this.setCapabilityValue('relax_mode', resData.relaxMode);
       await this.setCapabilityValue('standby_mode', resData.standbyMode);
-      await this.setCapabilityValue('onoff', resData.status === 1);
+      await this.setCapabilityValue('onoff', (resData.status === 1 || resData.status === 4));
       await this.setCapabilityValue('fan_speed', resData.fan1power);
       this.log("ResData: ", resData);
     } catch (error) {
