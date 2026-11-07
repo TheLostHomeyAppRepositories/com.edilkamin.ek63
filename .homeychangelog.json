@@ -46,5 +46,8 @@
   },
   "1.0.10": {
     "en": "Fixed status reporting"
+  },
+  "1.0.11": {
+    "en": "Added more status codes"
   }
 }
