@@ -124,7 +124,8 @@ module.exports = class EK63Device extends Homey.Device {
         resData.status === 1
         || resData.status === 4
         || resData.status === 5
-        || resData.status === 10));
+        || resData.status === 10
+        || resData.status === 11));
       await this.setCapabilityValue('fan_speed', resData.fan1power);
       this.log("ResData: ", resData);
     } catch (error) {
