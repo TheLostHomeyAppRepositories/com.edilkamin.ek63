@@ -52,5 +52,8 @@
   },
   "1.0.12": {
     "en": "Added new status code"
+  },
+  "1.0.13": {
+    "en": "Update dependencies"
   }
 }
